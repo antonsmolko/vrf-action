@@ -1,0 +1,69 @@
+{
+  "name": "vrf-action",
+  "version": "0.1.0",
+  "description": "ACTION effect for vrf form engine",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest --no-cache",
+    "build": "npx webpack build",
+    "pub": "npm run build && npm publish"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "humps": "^2.0.1",
+    "recursive-iterator": "^3.3.0",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "axios": "0.21.2",
+    "axios-mock-adapter": "^1.21.2",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.2.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "coffee-jest": "0.0.0",
+    "coffeescript": "2.5.1",
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-webpack-plugin": "^3.2.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.6",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.2",
+    "vrf": "^0.69.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./jest.setup.js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "coffee",
+      "ts"
+    ],
+    "transform": {
+      "^.+\\.coffee$": "./node_modules/coffee-jest",
+      "^.+\\.ts$": "ts-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!axios)"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.js",
+      "**/__tests__/**/*.test.coffee",
+      "*/?(*.)(spec|test).js",
+      "*/?(*.)(spec|test).coffee"
+    ]
+  }
+}
