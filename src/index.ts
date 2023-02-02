@@ -13,10 +13,11 @@ export default () : Effect => ({
     onLoad,
     onSave
   }) {
-    const { name, $resource, $http, rfId } = form
+    const { name, single, $resource, $http, rfId } = form
     const [basePath, actionPath] = name.split('#').map(decamelize)
+    const id = single ? null : rfId
 
-    const url = urlJoin(...compact([basePath, rfId, actionPath]).map(String))
+    const url = urlJoin(...compact([basePath, id, actionPath]).map(String))
 
     onLoad(() => Promise.resolve($resource))
 
