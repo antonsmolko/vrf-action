@@ -4,7 +4,6 @@ import compact from 'lodash/compact'
 import urlJoin from 'url-join'
 
 import { Effect } from 'vrf'
-import { THttpError } from './types'
 
 export default () : Effect => ({
   name: 'action',
@@ -22,7 +21,7 @@ export default () : Effect => ({
     onLoad(() => Promise.resolve($resource))
 
     onSave((data) => $http.post(url, data)
-      .then((response): [boolean, unknown] => [true, response.data])
-      .catch((error): [boolean, THttpError] => [false, error.response.data.messages]))
+      .then((response) => [true, response.data])
+      .catch((error) => [false, error.response.data.messages]))
   }
 })
